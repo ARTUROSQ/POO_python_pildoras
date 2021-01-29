@@ -1,27 +1,49 @@
+
 class Coche():
-    largoChasis=250
-    anchoChasis=120
-    ruedas=4
-    enmarcha=False
-	
-    """ Metodos o comportamientos, de un coche, arrancar, parar, derrapar, lo que puede hacer un coche """
+    
+    def __init__(self):
+        self.__largoChasis=250
+        self.__anchoChasis=120
+        self.__ruedas=4
+        self.__enmarcha=False
 
-    def arrancar(self):
-        self.enmarcha=True
+    """ Metodo comportamientos, de un coche, arrancar, parar, derrapar, lo que puede hacer un coche """
 
-    def estado(self):
-        if(self.enmarcha==True):
+    def arrancar(self, arrancamos):
+        self.__enmarcha=arrancamos
+
+        if(self.__enmarcha==True):
             return "El coche esta en  marcha"
         else:
             return "El coche esta parado"
+            
+
+    def estado(self):
+        print("El coche tiene ", self.__ruedas, "ruedas. Un ancho de ", self.__anchoChasis, " y un largo de ", self.__largoChasis)
+        
+        
 
 """Instanciar una clase, la clase coche"""
 miCoche=Coche()
 
 """  Nomenclatura del punto = Nombre_del_objeto . propiedad """
 
-print("El largo del coche es: ", miCoche.largoChasis)
-print("El coche tiene ", miCoche.ruedas, "ruedas")
-miCoche.arrancar()
 
-print(miCoche.estado())
+
+print(miCoche.arrancar(True))
+
+miCoche.estado()
+
+print("----------------------------------  A continiacion creamos el segundo objeto.  ----------------------------------")
+
+micoche2=Coche()
+
+
+
+print(micoche2.arrancar(False))
+
+micoche2.ruedas=2
+
+micoche2.estado()
+
+
